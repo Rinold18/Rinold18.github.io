@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rinold Rosario P. J | Portfolio</title>
@@ -15,115 +15,88 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f6f8;
-      color: #333;
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      color: #e0e0e0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Transparent Initials Background */
+    body::before {
+      content: "RINOLD";
+      position: fixed;
+      top: 10%;
+      left: 5%;
+      font-size: 12rem;
+      color: rgba(255, 255, 255, 0.05);
+      font-weight: 900;
+      z-index: 0;
+      pointer-events: none;
+      transform: rotate(-15deg);
     }
 
     header {
-      background: linear-gradient(to right, #343a40, #212529);
-      color: white;
-      padding: 60px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 80px 20px;
       text-align: center;
       position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3.2rem;
       margin-bottom: 10px;
+      background: linear-gradient(45deg, #74ebd5, #acb6e5, #ff6ec4, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
 
     header p {
-      font-size: 1.2rem;
-      color: #ced4da;
+      font-size: 1.3rem;
+      color: #f1f1f1;
+      opacity: 0.9;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      background: #495057;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
+      padding: 10px 0;
     }
 
     nav a {
-      color: #f8f9fa;
+      color: #fff;
       padding: 14px 20px;
       text-decoration: none;
-      transition: background 0.3s;
+      transition: background 0.4s ease, transform 0.3s ease;
     }
 
     nav a:hover {
-      background: #adb5bd;
-      color: #212529;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    section {
-      margin-bottom: 60px;
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-4px);
-    }
-
-    h2 {
-      margin-top: 0;
-      color: #212529;
-      border-bottom: 2px solid #dee2e6;
-      padding-bottom: 8px;
-    }
-
-    ul {
-      padding-left: 20px;
-      line-height: 1.7;
-    }
-
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .download-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 24px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-
-    .download-btn:hover {
-      background-color: #0056b3;
-    }
-
-    footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      transform: scale(1.1);
     }
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+      }
+
+      body::before {
+        font-size: 6rem;
+        left: -10%;
+        top: 30%;
       }
 
       nav {
@@ -131,7 +104,7 @@
       }
 
       nav a {
-        flex: 1 1 50%;
+        flex: 1 1 100%;
         text-align: center;
       }
     }
@@ -140,9 +113,10 @@
 <body>
 
   <header>
-    <h1>Rinold Rosario P. J</h1>
+    <h1>Rinold Rosario P J</h1>
     <p>Tech-driven HR Professional | Bridging IT Operations and People Management</p>
   </header>
+
 
   <nav>
     <a href="#about">About</a>
