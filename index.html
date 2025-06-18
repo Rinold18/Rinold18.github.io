@@ -1,177 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rinold Rosario P. J | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      scroll-behavior: smooth;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rinold Rosario P. J | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+      }
 
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
-      color: #e0e0e0;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Transparent Initials Background */
-    body::before {
-      content: "RINOLD";
-      position: fixed;
-      top: 10%;
-      left: 5%;
-      font-size: 12rem;
-      color: rgba(255, 255, 255, 0.05);
-      font-weight: 900;
-      z-index: 0;
-      pointer-events: none;
-      transform: rotate(-15deg);
-    }
-
-    header {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      color: #fff;
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    }
-
-    header h1 {
-      font-size: 3.2rem;
-      margin-bottom: 10px;
-      background: linear-gradient(45deg, #74ebd5, #acb6e5, #ff6ec4, #7873f5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-
-    header p {
-      font-size: 1.3rem;
-      color: #f1f1f1;
-      opacity: 0.9;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: #fff;
-      padding: 14px 20px;
-      text-decoration: none;
-      transition: background 0.4s ease, transform 0.3s ease;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      transform: scale(1.1);
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom right, #a2b6df, #cbd9ed, #dee7f5);
+        color: #1a1a1a;
+        position: relative;
+        overflow-x: hidden;
       }
 
       body::before {
-        font-size: 6rem;
-        left: -10%;
-        top: 30%;
+        content: "RINOLD";
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        font-size: 12rem;
+        color: rgba(0, 0, 0, 0.05);
+        font-weight: 900;
+        z-index: 0;
+        pointer-events: none;
+        transform: rotate(-15deg);
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        color: #000;
+        padding: 80px 20px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 3.2rem;
+        margin-bottom: 10px;
+        background: linear-gradient(45deg, #007cf0, #00dfd8, #7928ca, #ff0080);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      header p {
+        font-size: 1.3rem;
+        color: #222;
+        opacity: 0.9;
       }
 
       nav {
-        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        padding: 10px 0;
       }
 
       nav a {
-        flex: 1 1 100%;
+        color: #000;
+        padding: 14px 20px;
+        text-decoration: none;
+        transition: background 0.4s ease, transform 0.3s ease;
+      }
+
+      nav a:hover {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        transform: scale(1.1);
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      section {
+        margin-bottom: 60px;
         text-align: center;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <header>
-    <h1>Rinold Rosario P J</h1>
-    <p>Tech-driven HR Professional | Bridging IT Operations and People Management</p>
-  </header>
+      section h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
 
+      section p, section li {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #222;
+      }
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I’m a detail-oriented IT Operations professional with 1.9 years at TCS, currently transitioning into Human Resource/Admin roles with an MBA in HR & Business Analytics. Passionate about data-driven decision-making, operational efficiency, and aligning technology with HR practices.</p>
-    </section>
+      li {
+        margin-bottom: 10px;
+      }
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>TCS (2021–2023):</strong> Process Associate – Managed incident resolution, performance tuning, and IT support for a US Retail client.</li>
-        <li><strong>Hyundai WIA (Aug - 2024):</strong> HR Intern – Supported payroll and HRMIS operations.</li>
-        <li><strong>CEAT Tyres (Jan - Feb 2024):</strong> Internship – Organized preventive maintenance data for SAP integration.</li>
-        <Li><strong>OJI India Packaging Pvt Ltd (Jan - feb 2025)</strong> Internship - HR & Functions, Business Managment & Management Activities.</Li>
-      </ul>
-    </section>
+      a.download-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #007cf0;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background 0.3s ease;
+      }
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>MBA – HR & Business Analytics</strong>, Jeppiaar Institute of Technology (2023–2025)</li>
-        <li><strong>BSc – Computer Science</strong>, Sacred Heart College, Tirupattur (2017–2020)</li>
-      </ul>
-    </section>
+      a.download-btn:hover {
+        background: #005bb5;
+      }
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>Office 365, Power BI, Power Apps, SQL, Python</li>
-        <li>Incident Management, SLA Tracking, ServiceNow</li>
-        <li>HRMIS, Payroll, Recruitment, Compliance</li>
-      </ul>
-    </section>
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(6px);
+        font-size: 0.9rem;
+        color: #444;
+      }
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/rinold-rosario" target="_blank">linkedin.com/in/rinold-rosario</a></p>
-      <p>Phone & WhatsApp: +91 88383 34227</p>
-      <p>Phone & WhatsApp: +971 58122 3291</p>
-      <a href="Rinold_CV.pdf" download class="download-btn">📄 Download CV</a>
-    </section>
-  </main>
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 2rem;
+        }
 
-  <footer>
-    <p>© 2025 Rinold Rosario P. J | Portfolio</p>
-  </footer>
+        body::before {
+          font-size: 6rem;
+          left: -10%;
+          top: 30%;
+        }
 
-</body>
+        nav {
+          flex-wrap: wrap;
+        }
+
+        nav a {
+          flex: 1 1 100%;
+          text-align: center;
+        }
+
+        main {
+          padding: 20px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Rinold Rosario P J</h1>
+      <p>Tech-driven HR Professional | Bridging IT Operations and People Management</p>
+    </header>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+      <section id="about">
+        <h2>About Me</h2>
+        <p>I’m a detail-oriented IT Operations professional with 1.9 years at TCS, currently transitioning into Human Resource/Admin roles with an MBA in HR & Business Analytics. Passionate about data-driven decision-making, operational efficiency, and aligning technology with HR practices.</p>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+          <li><strong>TCS (2021–2023):</strong> Process Associate – Managed incident resolution, performance tuning, and IT support for a US Retail client.</li>
+          <li><strong>Hyundai WIA (Aug 2024):</strong> HR Intern – Supported payroll and HRMIS operations.</li>
+          <li><strong>CEAT Tyres (Jan - Feb 2024):</strong> Internship – Organized preventive maintenance data for SAP integration.</li>
+          <li><strong>OJI India Packaging Pvt Ltd (Jan - Feb 2025):</strong> Internship – HR & Functions, Business Management & Management Activities.</li>
+        </ul>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <ul>
+          <li><strong>MBA – HR & Business Analytics</strong>, Jeppiaar Institute of Technology (2023–2025)</li>
+          <li><strong>BSc – Computer Science</strong>, Sacred Heart College, Tirupattur (2017–2020)</li>
+        </ul>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>Office 365, Power BI, Power Apps, SQL, Python</li>
+          <li>Incident Management, SLA Tracking, ServiceNow</li>
+          <li>HRMIS, Payroll, Recruitment, Compliance</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/rinold-rosario" target="_blank">linkedin.com/in/rinold-rosario</a></p>
+        <p>Phone & WhatsApp: +91 88383 34227</p>
+        <p>Phone & WhatsApp: +971 58122 3291</p>
+        <a href="Rinold_CV.pdf" download class="download-btn">📄 Download CV</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Rinold Rosario P. J | Portfolio</p>
+    </footer>
+  </body>
 </html>
