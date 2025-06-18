@@ -7,137 +7,125 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     * {
-      scroll-behavior: smooth;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #cbe0f5, #ddeaf9);
-      color: #1a1a1a;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom right, #e3efff, #f7faff);
+      color: #111;
       overflow-x: hidden;
     }
 
     header, nav, main, footer {
-      transition: filter 0.5s ease, opacity 0.5s ease;
+      transition: filter 0.4s ease;
     }
 
     .blurred {
-      filter: blur(8px) brightness(0.7);
+      filter: blur(6px) brightness(0.6);
       pointer-events: none;
       user-select: none;
     }
 
     header {
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
+      padding: 60px 20px;
       text-align: center;
-      padding: 80px 20px;
-      position: relative;
-      z-index: 2;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(8px);
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       background: linear-gradient(45deg, #007cf0, #7928ca);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #333;
-    }
-
     nav {
       display: flex;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 10px 0;
+      gap: 10px;
+      background: rgba(255,255,255,0.4);
+      padding: 10px;
       position: sticky;
       top: 0;
-      z-index: 3;
+      z-index: 10;
+      backdrop-filter: blur(5px);
     }
 
     nav a {
-      margin: 0 10px;
       padding: 10px 20px;
       color: #000;
       text-decoration: none;
-      transition: background 0.3s ease, transform 0.3s ease;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+      font-weight: 500;
     }
 
     nav a:hover {
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 6px;
-      transform: scale(1.1);
+      background: rgba(0, 0, 0, 0.1);
     }
 
     main {
-      max-width: 900px;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: auto;
       padding: 40px 20px;
       position: relative;
     }
 
     section {
-      margin: 60px 0;
-      background: white;
+      margin-bottom: 60px;
+      background: #fff;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      transition: all 0.4s ease;
-      opacity: 1;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: all 0.5s ease;
+      position: relative;
     }
 
     section h2 {
-      text-align: center;
-      font-size: 2rem;
+      margin-top: 0;
+      font-size: 1.8rem;
     }
 
-    section ul {
-      padding-left: 0;
-      list-style: none;
-    }
-
-    section ul li {
-      margin-bottom: 10px;
-    }
-
-    /* POP-UP ACTIVE STYLE */
+    /* Active pop-out effect */
     .active-section {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(1.05);
-      background: white;
-      z-index: 1000;
-      width: 90%;
-      max-width: 700px;
+      z-index: 999;
+      max-width: 90%;
+      width: 700px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
       max-height: 80vh;
       overflow-y: auto;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     }
 
     .close-btn {
-      display: block;
-      text-align: center;
       margin-top: 20px;
-      padding: 8px 20px;
-      background: #ff5c5c;
+      padding: 8px 16px;
+      background: #ff3d3d;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #444;
+      background: #f0f0f0;
+      color: #555;
     }
   </style>
 </head>
@@ -149,43 +137,43 @@
   </header>
 
   <nav>
-    <a href="#about" onclick="openSection('about')">About</a>
-    <a href="#experience" onclick="openSection('experience')">Experience</a>
-    <a href="#education" onclick="openSection('education')">Education</a>
-    <a href="#skills" onclick="openSection('skills')">Skills</a>
-    <a href="#contact" onclick="openSection('contact')">Contact</a>
+    <a href="#" onclick="openSection(event, 'about')">About</a>
+    <a href="#" onclick="openSection(event, 'experience')">Experience</a>
+    <a href="#" onclick="openSection(event, 'education')">Education</a>
+    <a href="#" onclick="openSection(event, 'skills')">Skills</a>
+    <a href="#" onclick="openSection(event, 'contact')">Contact</a>
   </nav>
 
   <main id="main-content">
     <section id="about">
       <h2>About Me</h2>
-      <p>I’m a detail-oriented IT Operations professional with 1.9 years at TCS, currently transitioning into Human Resource/Admin roles with an MBA in HR & Business Analytics.</p>
+      <p>Detail-oriented IT professional with 1.9 years of experience at TCS, now transitioning into HR/Admin roles with an MBA in HR & Business Analytics.</p>
     </section>
 
     <section id="experience">
       <h2>Experience</h2>
       <ul>
-        <li><strong>TCS (2021–2023):</strong> Process Associate – Managed incident resolution and IT support.</li>
-        <li><strong>Hyundai WIA (2024):</strong> HR Intern – Supported payroll and HRMIS.</li>
-        <li><strong>CEAT Tyres (2024):</strong> Internship – Preventive maintenance for SAP.</li>
-        <li><strong>OJI India Packaging (2025):</strong> HR Internship – Business Management & Admin.</li>
+        <li><strong>TCS (2021–2023):</strong> Process Associate</li>
+        <li><strong>Hyundai WIA (2024):</strong> HR Intern</li>
+        <li><strong>CEAT Tyres (2024):</strong> Maintenance Intern</li>
+        <li><strong>OJI India (2025):</strong> HR Intern</li>
       </ul>
     </section>
 
     <section id="education">
       <h2>Education</h2>
       <ul>
-        <li><strong>MBA – HR & Business Analytics</strong>, Jeppiaar Institute (2023–2025)</li>
-        <li><strong>BSc – Computer Science</strong>, Sacred Heart College (2017–2020)</li>
+        <li>MBA in HR & Business Analytics (2023–2025)</li>
+        <li>BSc in Computer Science (2017–2020)</li>
       </ul>
     </section>
 
     <section id="skills">
       <h2>Skills</h2>
       <ul>
-        <li>Office 365, Power BI, Power Apps, SQL, Python</li>
+        <li>Power BI, Power Apps, SQL, Python</li>
         <li>Incident Management, SLA Tracking, ServiceNow</li>
-        <li>HRMIS, Payroll, Recruitment, Compliance</li>
+        <li>HRMIS, Payroll, Recruitment</li>
       </ul>
     </section>
 
@@ -193,8 +181,7 @@
       <h2>Contact</h2>
       <p>Email: <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a></p>
       <p>LinkedIn: <a href="https://linkedin.com/in/rinold-rosario" target="_blank">linkedin.com/in/rinold-rosario</a></p>
-      <p>Phone & WhatsApp: +91 88383 34227 / +971 58122 3291</p>
-      <a href="Rinold_CV.pdf" download class="download-btn">📄 Download CV</a>
+      <p>Phone: +91 88383 34227 / +971 58122 3291</p>
     </section>
   </main>
 
@@ -203,34 +190,42 @@
   </footer>
 
   <script>
-    function openSection(id) {
-      // Blur everything except the target
+    function openSection(event, id) {
+      event.preventDefault(); // Stop default anchor behavior
+
+      // Blur rest
       document.querySelector('header').classList.add('blurred');
       document.querySelector('nav').classList.add('blurred');
       document.querySelector('footer').classList.add('blurred');
-      document.querySelectorAll('section').forEach(s => {
-        if (s.id !== id) s.classList.add('blurred');
-        else {
-          s.classList.add('active-section');
-          const closeBtn = document.createElement('button');
-          closeBtn.textContent = "Close";
-          closeBtn.className = 'close-btn';
-          closeBtn.onclick = () => closeSection(id);
-          if (!s.querySelector('.close-btn')) s.appendChild(closeBtn);
+      document.querySelectorAll('section').forEach(section => {
+        if (section.id !== id) {
+          section.classList.add('blurred');
         }
       });
+
+      const target = document.getElementById(id);
+      target.classList.add('active-section');
+
+      if (!target.querySelector('.close-btn')) {
+        const btn = document.createElement('button');
+        btn.className = 'close-btn';
+        btn.innerText = 'Close';
+        btn.onclick = () => closeSection(id);
+        target.appendChild(btn);
+      }
     }
 
     function closeSection(id) {
       document.querySelector('header').classList.remove('blurred');
       document.querySelector('nav').classList.remove('blurred');
       document.querySelector('footer').classList.remove('blurred');
-      document.querySelectorAll('section').forEach(s => {
-        s.classList.remove('blurred', 'active-section');
-        const btn = s.querySelector('.close-btn');
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('blurred', 'active-section');
+        const btn = section.querySelector('.close-btn');
         if (btn) btn.remove();
       });
     }
   </script>
+
 </body>
 </html>
