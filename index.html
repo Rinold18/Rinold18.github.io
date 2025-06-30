@@ -24,24 +24,47 @@
       transition: filter 0.4s ease;
     }
 
-    .blurred {
-      filter: blur(6px) brightness(0.6);
-      pointer-events: none;
-      user-select: none;
+    /* Banner Styling */
+    .banner-header {
+      background-image: url('/mnt/data/ChatGPT Image Jun 30, 2025, 04_59_18 PM.png');
+      background-size: cover;
+      background-position: center;
+      height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
 
-    header {
-      padding: 60px 20px;
+    .banner-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+
+    .banner-header .overlay {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(8px);
+      color: white;
+      padding: 20px;
     }
 
-    header h1 {
+    .banner-header h1 {
       font-size: 2.8rem;
-      background: linear-gradient(45deg, #007cf0, #7928ca);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .banner-header p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 750px;
+      margin: 10px auto 0;
     }
 
     nav {
@@ -91,7 +114,6 @@
       font-size: 1.8rem;
     }
 
-    /* Active pop-out effect */
     .active-section {
       position: fixed;
       top: 50%;
@@ -127,15 +149,34 @@
       background: #f0f0f0;
       color: #555;
     }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Rinold Rosario P J</h1>
-   <p>🔧💼 Tech-Driven HR Professional | 🤝 Bridging IT Operations & People Management 🌐📊
-Modern | Versatile | Adaptable — Open to IT & HR roles in UAE (Entry to Mid-level)
-📍 Currently in UAE on Visit Visa | 💡 Immediate Joiner | 🧩 Blending Tech & Talent</p>
+  <header class="banner-header">
+    <div class="overlay">
+      <h1>Rinold Rosario P J</h1>
+      <p>🔧💼 Tech-Driven HR Professional | 🤝 Bridging IT Operations & People Management 🌐📊<br>
+      Modern | Versatile | Adaptable — Open to IT & HR roles in UAE (Entry to Mid-level)<br>
+      📍 Currently in UAE on Visit Visa | 💡 Immediate Joiner | 🧩 Blending Tech & Talent</p>
+    </div>
   </header>
 
   <nav>
@@ -179,34 +220,13 @@ Modern | Versatile | Adaptable — Open to IT & HR roles in UAE (Entry to Mid-le
       </ul>
     </section>
 
-   <section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/rinold-rosario" target="_blank">linkedin.com/in/rinold-rosario</a></p>
-  <p>Phone: +91 88383 34227 / +971 58122 3291</p>
-  <p>
-    <a href="Rinold_CV.pdf" download class="download-btn">📄 Download CV</a>
-  </p>
-</section>
-
-<style>
-  .download-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 16px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-
-  .download-btn:hover {
-    background-color: #0056b3;
-  }
-</style>
-
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/rinold-rosario" target="_blank">linkedin.com/in/rinold-rosario</a></p>
+      <p>Phone: +91 88383 34227 / +971 58122 3291</p>
+      <p><a href="Rinold_CV.pdf" download class="download-btn">📄 Download CV</a></p>
+    </section>
   </main>
 
   <footer>
@@ -215,7 +235,7 @@ Modern | Versatile | Adaptable — Open to IT & HR roles in UAE (Entry to Mid-le
 
   <script>
     function openSection(event, id) {
-      event.preventDefault(); 
+      event.preventDefault();
       document.querySelector('header').classList.add('blurred');
       document.querySelector('nav').classList.add('blurred');
       document.querySelector('footer').classList.add('blurred');
