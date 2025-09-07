@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,7 +15,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom right, #e3efff, #f7faff);
+      background: #f7faff;
       color: #111;
       overflow-x: hidden;
     }
@@ -26,108 +26,110 @@
 
     /* Banner Styling */
     .banner-header {
-      background: url("ChatGPT_Image_Jun_30_2025_04_59_18_PM.png") no-repeat center/cover;
-      height: 340px;
+      background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&q=80&w=1920&fit=crop") no-repeat center/cover;
+      height: 360px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
     }
 
-    /* Animated Gradient Overlay */
     .banner-header::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: linear-gradient(135deg, #007bff, #8338ec, #ff6a00, #00cba9);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-      opacity: 0.75;
+      background: rgba(255, 255, 255, 0.65);
       z-index: 1;
-    }
-
-    @keyframes gradientShift {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     .banner-header .overlay {
       position: relative;
       z-index: 2;
       text-align: center;
-      color: white;
+      color: #111;
       padding: 20px;
     }
 
     .banner-header h1 {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       margin: 0;
       font-weight: bold;
     }
 
     .banner-header p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.6;
       max-width: 750px;
       margin: 10px auto 0;
     }
 
-    /* Navbar with animated gradient */
+    /* Navbar */
     nav {
       display: flex;
       justify-content: center;
       gap: 10px;
-      background: linear-gradient(135deg, #007bff99, #8338ec99);
-      background-size: 200% 200%;
-      animation: gradientShift 12s ease infinite;
+      background: #ffffffcc;
       padding: 10px;
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(8px);
-      border-radius: 0 0 10px 10px;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #ddd;
     }
 
     nav a {
       padding: 10px 20px;
-      color: #fff;
+      color: #111;
       text-decoration: none;
       border-radius: 5px;
-      transition: background 0.3s ease;
       font-weight: 500;
+      transition: background 0.3s ease;
     }
 
     nav a:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: #f0f0f0;
     }
 
     main {
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
       padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    /* Section Cards */
+    section {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
     }
 
-    section {
-      margin-bottom: 60px;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      transition: all 0.5s ease;
-      position: relative;
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
     section h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
+      margin: 0 0 10px;
+      font-size: 1.6rem;
+    }
+
+    section p, section ul {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #444;
     }
 
     /* Active Section Popup */
     .active-section {
-      position: fixed;
+      position: fixed !important;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(1.05);
@@ -141,6 +143,7 @@
       max-height: 80vh;
       overflow-y: auto;
       animation: zoomIn 0.4s ease forwards;
+      cursor: default;
     }
 
     @keyframes zoomIn {
@@ -184,7 +187,7 @@
       background-color: #0056b3;
     }
 
-    /* Blurred background when section opens */
+    /* Blur Background */
     .blurred {
       filter: blur(6px) brightness(0.8);
       pointer-events: none;
@@ -197,9 +200,11 @@
   <header class="banner-header">
     <div class="overlay">
       <h1>Rinold Rosario P J</h1>
-      <p>🔧💼 Tech-Driven HR Professional | 🤝 Bridging IT Operations & People Management 🌐📊<br>
-      Modern | Versatile | Adaptable — Open to IT & HR roles in UAE (Entry to Mid-level)<br>
-      📍 Currently in UAE on Visit Visa | 💡 Immediate Joiner | 🧩 Blending Tech & Talent</p>
+      <p>
+        🔧💼 Tech-Driven HR Professional | 🤝 Bridging IT Operations & People Management 🌐📊 <br>
+        Naukri Gulf Certified Recruiter | Modern | Versatile | Adaptable — Open to IT & HR roles in UAE <br>
+        📍 Currently in UAE on Visit Visa | 💡 Immediate Joiner | 🧩 Blending Tech & Talent
+      </p>
     </div>
   </header>
 
@@ -212,44 +217,29 @@
   </nav>
 
   <main id="main-content">
-    <section id="about">
+    <section id="about" onclick="openSection(event, 'about')">
       <h2>About Me</h2>
-      <p>Detail-oriented IT professional with 2 years of experience at TCS, now transitioning into HR/Admin & assistant roles with an MBA in HR & Business Analytics.</p>
+      <p>Detail-oriented IT professional with 1.9 years of experience at TCS, now transitioning into HR/Admin roles with an MBA in HR & Business Analytics.</p>
     </section>
 
-    <section id="experience">
+    <section id="experience" onclick="openSection(event, 'experience')">
       <h2>Experience</h2>
-      <ul>
-        <li><strong>TCS (2021–2023):</strong> Process Associate</li>
-        <li><strong>Hyundai WIA (2024):</strong> HR Intern</li>
-        <li><strong>CEAT Tyres (2024):</strong> Maintenance Intern</li>
-        <li><strong>OJI India (2025):</strong> HR Intern</li>
-      </ul>
+      <p>Click to view professional journey</p>
     </section>
 
-    <section id="education">
+    <section id="education" onclick="openSection(event, 'education')">
       <h2>Education</h2>
-      <ul>
-        <li>MBA in HR & Business Analytics (2023–2025)</li>
-        <li>BSc in Computer Science (2017–2020)</li>
-      </ul>
+      <p>Click to view academic qualifications</p>
     </section>
 
-    <section id="skills">
+    <section id="skills" onclick="openSection(event, 'skills')">
       <h2>Skills</h2>
-      <ul>
-        <li>Power BI, Power Apps, SQL, Python</li>
-        <li>Incident Management, SLA Tracking, ServiceNow</li>
-        <li>HRMIS, Payroll,Oracle Certified HCM Foundation, Naukri Gulf Certified Recruiter </li>
-      </ul>
+      <p>Click to view technical & HR skills</p>
     </section>
 
-    <section id="contact">
+    <section id="contact" onclick="openSection(event, 'contact')">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/rinold-rosario" target="_blank">linkedin.com/in/rinold-rosario</a></p>
-      <p>Phone: +91 88383 34227 / +971 55 684 0762</p>
-      <p><a href="Rinold_CV.pdf" download class="download-btn">📄 Download CV</a></p>
+      <p>Click to connect with me</p>
     </section>
   </main>
 
@@ -272,13 +262,58 @@
       const target = document.getElementById(id);
       target.classList.add('active-section');
 
-      if (!target.querySelector('.close-btn')) {
-        const btn = document.createElement('button');
-        btn.className = 'close-btn';
-        btn.innerText = 'Close';
-        btn.onclick = () => closeSection(id);
-        target.appendChild(btn);
+      // Fill full content dynamically
+      let content = "";
+      if (id === "experience") {
+        content = `
+          <h2>Experience</h2>
+          <ul>
+            <li><strong>TCS (2021–2023):</strong> Process Associate</li>
+            <li><strong>Hyundai WIA (2024):</strong> HR Intern</li>
+            <li><strong>CEAT Tyres (2024):</strong> Maintenance Intern</li>
+            <li><strong>OJI India (2025):</strong> HR Intern</li>
+          </ul>`;
       }
+      if (id === "education") {
+        content = `
+          <h2>Education</h2>
+          <ul>
+            <li>MBA in HR & Business Analytics (2023–2025)</li>
+            <li>BSc in Computer Science (2017–2020)</li>
+          </ul>`;
+      }
+      if (id === "skills") {
+        content = `
+          <h2>Skills</h2>
+          <ul>
+            <li>Power BI, Power Apps, SQL, Python</li>
+            <li>Incident Management, SLA Tracking, ServiceNow</li>
+            <li>HRMIS, Payroll, Recruitment</li>
+            <li>Oracle Certified HCM Professional</li>
+          </ul>`;
+      }
+      if (id === "contact") {
+        content = `
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://linkedin.com/in/rinold-rosario" target="_blank">linkedin.com/in/rinold-rosario</a></p>
+          <p>Phone: +91 88383 34227 / +971 55 684 0762</p>
+          <p><a href="Rinold_CV.pdf" download class="download-btn">📄 Download CV</a></p>`;
+      }
+      if (id === "about") {
+        content = `
+          <h2>About Me</h2>
+          <p>Detail-oriented IT professional with 1.9 years of experience at TCS, now transitioning into HR/Admin roles with an MBA in HR & Business Analytics. Certified recruiter with a strong interest in HR technology and analytics.</p>`;
+      }
+
+      target.innerHTML = content;
+
+      // Add close button
+      const btn = document.createElement('button');
+      btn.className = 'close-btn';
+      btn.innerText = 'Close';
+      btn.onclick = () => closeSection(id);
+      target.appendChild(btn);
     }
 
     function closeSection(id) {
@@ -287,9 +322,24 @@
       document.querySelector('footer').classList.remove('blurred');
       document.querySelectorAll('section').forEach(section => {
         section.classList.remove('blurred', 'active-section');
-        const btn = section.querySelector('.close-btn');
-        if (btn) btn.remove();
       });
+
+      // Reset previews after closing
+      if (id === "experience") {
+        document.getElementById(id).innerHTML = "<h2>Experience</h2><p>Click to view professional journey</p>";
+      }
+      if (id === "education") {
+        document.getElementById(id).innerHTML = "<h2>Education</h2><p>Click to view academic qualifications</p>";
+      }
+      if (id === "skills") {
+        document.getElementById(id).innerHTML = "<h2>Skills</h2><p>Click to view technical & HR skills</p>";
+      }
+      if (id === "contact") {
+        document.getElementById(id).innerHTML = "<h2>Contact</h2><p>Click to connect with me</p>";
+      }
+      if (id === "about") {
+        document.getElementById(id).innerHTML = "<h2>About Me</h2><p>Detail-oriented IT professional with 1.9 years of experience at TCS, now transitioning into HR/Admin roles with an MBA in HR & Business Analytics.</p>";
+      }
     }
   </script>
 
