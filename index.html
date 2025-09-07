@@ -26,9 +26,7 @@
 
     /* Banner Styling */
     .banner-header {
-      background-image: ChatGPT Image Jun 30, 2025, 04_59_18 PM.png;
-      background-size: cover;
-      background-position: center;
+      background: url("ChatGPT_Image_Jun_30_2025_04_59_18_PM.png") no-repeat center/cover;
       height: 340px;
       display: flex;
       align-items: center;
@@ -36,14 +34,23 @@
       position: relative;
     }
 
+    /* Animated Gradient Overlay */
     .banner-header::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(6px);
+      background: linear-gradient(135deg, #007bff, #8338ec, #ff6a00, #00cba9);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      opacity: 0.75;
       z-index: 1;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .banner-header .overlay {
@@ -67,21 +74,25 @@
       margin: 10px auto 0;
     }
 
+    /* Navbar with animated gradient */
     nav {
       display: flex;
       justify-content: center;
       gap: 10px;
-      background: rgba(255,255,255,0.4);
+      background: linear-gradient(135deg, #007bff99, #8338ec99);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
       padding: 10px;
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(8px);
+      border-radius: 0 0 10px 10px;
     }
 
     nav a {
       padding: 10px 20px;
-      color: #000;
+      color: #fff;
       text-decoration: none;
       border-radius: 5px;
       transition: background 0.3s ease;
@@ -89,7 +100,7 @@
     }
 
     nav a:hover {
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.2);
     }
 
     main {
@@ -114,6 +125,7 @@
       font-size: 1.8rem;
     }
 
+    /* Active Section Popup */
     .active-section {
       position: fixed;
       top: 50%;
@@ -128,6 +140,12 @@
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
       max-height: 80vh;
       overflow-y: auto;
+      animation: zoomIn 0.4s ease forwards;
+    }
+
+    @keyframes zoomIn {
+      from { transform: translate(-50%, -50%) scale(0.9); opacity: 0; }
+      to   { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
     }
 
     .close-btn {
@@ -165,6 +183,12 @@
     .download-btn:hover {
       background-color: #0056b3;
     }
+
+    /* Blurred background when section opens */
+    .blurred {
+      filter: blur(6px) brightness(0.8);
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -190,7 +214,7 @@
   <main id="main-content">
     <section id="about">
       <h2>About Me</h2>
-      <p>Detail-oriented IT professional with 1.9 years of experience at TCS, now transitioning into HR/Admin roles with an MBA in HR & Business Analytics.</p>
+      <p>Detail-oriented IT professional with 2 years of experience at TCS, now transitioning into HR/Admin & assistant roles with an MBA in HR & Business Analytics.</p>
     </section>
 
     <section id="experience">
@@ -216,7 +240,7 @@
       <ul>
         <li>Power BI, Power Apps, SQL, Python</li>
         <li>Incident Management, SLA Tracking, ServiceNow</li>
-        <li>HRMIS, Payroll, Recruitment</li>
+        <li>HRMIS, Payroll,Oracle Certified HCM Foundation, Naukri Gulf Certified Recruiter </li>
       </ul>
     </section>
 
