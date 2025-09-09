@@ -1,217 +1,498 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rinold Rosario P J | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rinold Rosario P J | Interactive Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; }
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background: #f7faff;
-      color: #111;
-      overflow-x: hidden;
+      box-sizing: border-box;
     }
 
-    /* Banner */
-    .banner-header {
-      background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&q=80&w=1920&fit=crop") no-repeat center/cover;
-      height: 360px;
+    :root {
+      --primary: #000000; /* Black */
+      --secondary: #444444;
+      --accent: #b57b50; /* Warm brown accent */
+      --text: #000000;
+      --bg: #f5f0e6; /* Elegant beige */
+      --card-bg: #ffffff;
+      --dark-card: #fdfaf6;
+      --lighter-dark: #f7f3ed;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Top Contact Bar */
+    .contact-flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--accent); /* Static warm brown */
+      padding: 15px 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-flash a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .contact-flash strong {
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: var(--bg);
       position: relative;
+      margin-top: 60px;
     }
-    .banner-header::before {
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .hero .tagline {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      margin-bottom: 2rem;
+      color: var(--secondary);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    /* Sections */
+    .section {
+      min-height: 100vh;
+      padding: 100px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 0.8s ease;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .section-content {
+      background: var(--lighter-dark);
+      border-radius: 20px;
+      padding: 60px 40px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .profile-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
       content: '';
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255, 255, 255, 0.65);
-      z-index: 1;
-    }
-    .banner-header .overlay {
-      position: relative; z-index: 2; text-align: center; color: #111;
-    }
-    .banner-header h1 { font-size: 2.6rem; margin: 0; font-weight: bold; }
-    .banner-header p { font-size: 1.05rem; line-height: 1.6; max-width: 750px; margin: 10px auto 0; }
-
-    nav {
-      display: flex; justify-content: center; gap: 10px;
-      background: #ffffffcc; padding: 10px;
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: blur(6px); border-bottom: 1px solid #ddd;
-    }
-    nav a {
-      padding: 10px 20px; color: #111; text-decoration: none;
-      border-radius: 5px; font-weight: 500; transition: background 0.3s ease;
-    }
-    nav a:hover { background: #f0f0f0; }
-
-    main {
-      max-width: 1000px; margin: auto; padding: 40px 20px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent);
     }
 
-    /* Section Cards */
-    section {
-      background: #fff; padding: 25px; border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    section:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-    section h2 { margin: 0 0 10px; font-size: 1.6rem; }
-    section p { margin: 0; font-size: 0.95rem; color: #444; }
-
-    /* Modal Popup */
-    .modal {
-      display: none;
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(6px);
-      z-index: 999;
-      justify-content: center; align-items: center;
-      padding: 20px;
-    }
-    .modal-content {
-      background: #fff; border-radius: 12px; padding: 30px;
-      max-width: 700px; width: 100%;
-      max-height: 80vh; overflow-y: auto;
-      animation: zoomIn 0.3s ease;
-    }
-    @keyframes zoomIn {
-      from { transform: scale(0.9); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
-    }
-    .close-btn {
-      margin-top: 20px; padding: 8px 16px;
-      background: #ff3d3d; color: white;
-      border: none; border-radius: 6px; cursor: pointer;
-      display: block; margin-left: auto; margin-right: auto;
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 15px;
+      border-left: 4px solid var(--accent);
+      border: 1px solid rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.6s ease;
     }
 
-    footer { text-align: center; padding: 20px; background: #f0f0f0; color: #555; }
+    .section.visible .timeline-item {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 30px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .section.visible .skill-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skill-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px;
+      background: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: var(--accent);
+    }
+
     .download-btn {
-      display: inline-block; margin-top: 10px; padding: 10px 16px;
-      background-color: #007bff; color: #fff; text-decoration: none;
-      border-radius: 8px; font-weight: bold; transition: background-color 0.3s ease;
+      display: inline-block;
+      padding: 15px 40px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-top: 30px;
+      transition: all 0.3s ease;
     }
-    .download-btn:hover { background-color: #0056b3; }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      background: #a06846;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <header class="banner-header">
-    <div class="overlay">
-      <h1>Rinold Rosario P J</h1>
-      <p>
-        🔧💼 Tech-Driven HR Professional | 🤝 Bridging IT Operations & People Management 🌐📊 <br>
-        Naukri Gulf Certified Recruiter | Modern | Versatile | Adaptable — Open to IT & HR roles in UAE <br>
-        📍 Currently in UAE on Visit Visa | 💡 Immediate Joiner | 🧩 Blending Tech & Talent
-      </p>
-    </div>
-  </header>
-
-  <nav>
-    <a href="#" onclick="openModal('about')">About</a>
-    <a href="#" onclick="openModal('experience')">Experience</a>
-    <a href="#" onclick="openModal('education')">Education</a>
-    <a href="#" onclick="openModal('skills')">Skills</a>
-    <a href="#" onclick="openModal('contact')">Contact</a>
-  </nav>
-
-  <main>
-    <section onclick="openModal('about')">
-      <h2>About Me</h2>
-      <p>Click to view details</p>
-    </section>
-    <section onclick="openModal('experience')">
-      <h2>Experience</h2>
-      <p>Click to view details</p>
-    </section>
-    <section onclick="openModal('education')">
-      <h2>Education</h2>
-      <p>Click to view details</p>
-    </section>
-    <section onclick="openModal('skills')">
-      <h2>Skills</h2>
-      <p>Click to view details</p>
-    </section>
-    <section onclick="openModal('contact')">
-      <h2>Contact</h2>
-      <p>Click to view details</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Rinold Rosario P. J | Portfolio</p>
-  </footer>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content" id="modal-content"></div>
+  <!-- Contact Bar -->
+  <div class="contact-flash">
+    📧 <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a> |
+    📱 <a href="tel:+971556840762">+971 55 684 0762</a> |
+    💼 <a href="https://linkedin.com/in/rinold-rosario" target="_blank">LinkedIn</a> |
+    🚀 <strong>IMMEDIATE JOINER • UAE VISIT VISA</strong>
   </div>
 
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Rinold Rosario P J</h1>
+      <p class="tagline">
+        🔧💼 Tech-Driven HR Professional | 🤝 Bridging IT Operations & People Management<br>
+        🌐📊 Naukri Gulf Certified Recruiter | Oracle HCM Certified | Modern • Versatile • Adaptable
+      </p>
+    </div>
+    <div class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="black">
+        <path d="M7 10l5 5 5-5z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <h2>About Me</h2>
+        <div class="about-grid">
+          <div class="profile-card">
+            <div class="profile-avatar">RP</div>
+            <h3>Tech-HR Hybrid</h3>
+            <p>Bridging technology and talent with precision and passion</p>
+          </div>
+          <div>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+              Detail-oriented IT professional with <strong style="color: var(--accent);">1.9 years of TCS experience</strong>, now transitioning into HR/Admin roles with an MBA in HR & Business Analytics. As a certified recruiter with deep tech background, I bring unique value in HR technology implementation and data-driven talent management.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.7;">
+              My technical foundation in ServiceNow, Power BI, and Oracle HCM, combined with hands-on HR experience across multiple internships, positions me perfectly for modern HR roles that require both people skills and technological proficiency.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <h2>Professional Journey</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3 style="color: var(--accent); margin-bottom: 10px;">TCS Chennai, India (Aug 2021 – April 2023)</h3>
+            <h4>Process Associate</h4>
+            <p>Led incident management and SLA tracking using ServiceNow. Developed documentation systems and maintained 98% client satisfaction.</p>
+          </div>
+          <div class="timeline-item">
+            <h3 style="color: var(--accent); margin-bottom: 10px;">OJI India Packaging Pvt Ltd (2025)</h3>
+            <h4>HR Intern</h4>
+            <p>Implemented HRMIS systems and streamlined payroll processes. Hands-on experience in recruitment and employee lifecycle management.</p>
+          </div>
+          <div class="timeline-item">
+            <h3 style="color: var(--accent); margin-bottom: 10px;">Hyundai WIA Pvt Ltd (Aug 2024)</h3>
+            <h4>HR Intern</h4>
+            <p>Focused on talent acquisition and employee engagement initiatives in automotive manufacturing.</p>
+          </div>
+          <div class="timeline-item">
+            <h3 style="color: var(--accent); margin-bottom: 10px;">CEAT Tyres Pvt Ltd (Jan-Feb 2024)</h3>
+            <h4>Maintenance Intern</h4>
+            <p>Cross-functional experience in operations and maintenance, enhancing understanding of industrial HR requirements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <h2>Core Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">📊</div>
+            <h3>Data Analytics</h3>
+            <p>Power BI • Business Analytics • HR Metrics • Data Visualization</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🔧</div>
+            <h3>Technical Operations</h3>
+            <p>ServiceNow • Incident Management • SLA Tracking • Documentation</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">👥</div>
+            <h3>Human Resources</h3>
+            <p>HRMIS • Payroll • Recruitment • Oracle HCM • Employee Relations</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🎯</div>
+            <h3>Business Management</h3>
+            <p>Process Optimization • Project Management • Client Relations • Quality Assurance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <h2>Academic Foundation</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+          <div class="skill-card">
+            <div class="skill-icon">🎓</div>
+            <h3>MBA in HR & Business Analytics</h3>
+            <p><strong>2023 – 2025</strong><br>Specialized focus on HR technology integration and data-driven decision making</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">💻</div>
+            <h3>BSc Computer Science</h3>
+            <p><strong>2017 – 2020</strong><br>Strong foundation in programming, systems analysis, and technical problem-solving</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+          <h3 style="color: var(--accent); margin-bottom: 20px;">Professional Certifications</h3>
+          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+            <span style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 500;">🏆 Oracle HCM Professional</span>
+            <span style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 500;">📋 Naukri Gulf Certified Recruiter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section">
+    <div class="container">
+      <div class="section-content">
+        <h2>Let's Connect</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="skill-icon">📧</div>
+            <h3>Email</h3>
+            <p><a href="mailto:rinoldpj@gmail.com" style="color: var(--accent); text-decoration: none;">rinoldpj@gmail.com</a></p>
+          </div>
+          <div class="contact-card">
+            <div class="skill-icon">📱</div>
+            <h3>Phone</h3>
+            <p>🇮🇳 +91 88383 34227<br>🇦🇪 +971 55 684 0762</p>
+          </div>
+          <div class="contact-card">
+            <div class="skill-icon">💼</div>
+            <h3>LinkedIn</h3>
+            <p><a href="https://linkedin.com/in/rinold-rosario" target="_blank" style="color: var(--accent); text-decoration: none;">linkedin.com/in/rinold-rosario</a></p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+          <p style="font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); font-weight: 600;">
+            ✈️ Available for Immediate Joining (UAE)
+          </p>
+          <a href="Rinold_Rosario_Resume.pdf" class="download-btn" download>📄 Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <script>
-    function openModal(section) {
-      let content = "";
-      if (section === "about") {
-        content = `
-          <h2>About Me</h2>
-          <p>Detail-oriented IT professional with 1.9 years of experience at TCS, now transitioning into HR/Admin roles with an MBA in HR & Business Analytics. Certified recruiter with a strong interest in HR technology and analytics.</p>
-        `;
-      }
-      if (section === "experience") {
-        content = `
-          <h2>Experience</h2>
-          <ul>
-            <li><strong>TCS, Chennai,India (Aug 2021–April 2023):</strong> Process Associate</li>
-            <li><strong>Hyundai WIA Pvt Ltd (August 2024):</strong> HR Intern</li>
-            <li><strong>CEAT Tyres Pvt Ltd (Jan -Feb 2024):</strong> Maintenance Intern</li>
-            <li><strong>OJI India Packaging Pvt Ltd(2025):</strong> HR Intern</li>
-          </ul>
-        `;
-      }
-      if (section === "education") {
-        content = `
-          <h2>Education</h2>
-          <ul>
-            <li>MBA in HR & Business Analytics (2023–2025)</li>
-            <li>BSc in Computer Science (2017–2020)</li>
-          </ul>
-        `;
-      }
-      if (section === "skills") {
-        content = `
-          <h2>Skills</h2>
-          <ul>
-            <li>Power BI, Documentation, Data Analysis, Business Managament</li>
-            <li>Incident Management, SLA Tracking, ServiceNow</li>
-            <li>HRMIS, Payroll, Recruitment</li>
-            <li>Oracle Certified HCM Professional</li>
-          </ul>
-        `;
-      }
-      if (section === "contact") {
-        content = `
-          <h2>Contact</h2>
-          <p>Email: <a href="mailto:rinoldpj@gmail.com">rinoldpj@gmail.com</a></p>
-          <p>LinkedIn: <a href="https://linkedin.com/in/rinold-rosario" target="_blank">linkedin.com/in/rinold-rosario</a></p>
-          <p>Phone: +91 88383 34227 / +971 55 684 0762</p>
-          <p><a href="Rinold_CV.pdf" download class="download-btn">📄 Download CV</a></p>
-        `;
-      }
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
 
-      content += `<button class="close-btn" onclick="closeModal()">Close</button>`;
-      document.getElementById("modal-content").innerHTML = content;
-      document.getElementById("modal").style.display = "flex";
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
